@@ -2,11 +2,9 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Complete SofáLimpo Project Setup</title>
-    <script type="module" crossorigin src="/assets/index-Cgy6hsQO.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/index-C7bo5i_F.css">
+    <title>SofáLimpo</title>
+    <link rel="stylesheet" href="/assets/index-app.css">
     <style>
       /* Contact Form Overlay for "Outros" */
       .sl-contact-overlay {
@@ -256,15 +254,42 @@
     </style>
   </head>
   <body>
-    <div id="root"></div>
-  
-<script>
+    <div id="root">
+      <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; background: linear-gradient(135deg, #f9f9f9, #fff); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;">
+        <div style="text-align: center;">
+          <h1 style="font-size: 2.5rem; font-weight: 700; color: #1a1a2e; margin-bottom: 1rem;">SofáLimpo</h1>
+          <p style="font-size: 1.1rem; color: #6b7280; margin-bottom: 2rem;">Serviço de Limpeza de Móveis</p>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-top: 3rem; max-width: 900px;">
+            <div style="background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); border-left: 4px solid #deb052;">
+              <h3 style="font-size: 1.3rem; color: #1a1a2e; margin-bottom: 1rem;">Sofás</h3>
+              <p style="color: #6b7280; line-height: 1.6;">Limpeza profissional de sofás com preços conforme o número de lugares.</p>
+            </div>
+            <div style="background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); border-left: 4px solid #deb052;">
+              <h3 style="font-size: 1.3rem; color: #1a1a2e; margin-bottom: 1rem;">Colchões</h3>
+              <p style="color: #6b7280; line-height: 1.6;">Serviços de limpeza para colchões de solteiro e casal com higiene garantida.</p>
+            </div>
+            <div style="background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); border-left: 4px solid #deb052;">
+              <h3 style="font-size: 1.3rem; color: #1a1a2e; margin-bottom: 1rem;">Extras</h3>
+              <p style="color: #6b7280; line-height: 1.6;">Almofadas, puffs, bancos e outros complementos com cuidado especial.</p>
+            </div>
+          </div>
+          <div style="margin-top: 3rem; padding: 2rem; background: #fffbeb; border-radius: 12px; border: 2px solid #deb052; max-width: 500px;">
+            <p style="color: #1a1a2e; font-size: 1rem; margin-bottom: 1.5rem;">Para solicitar um orçamento ou informações sobre serviços personalizados:</p>
+            <div style="display: flex; flex-direction: column; gap: 1rem;">
+              <a href="tel:+351935798081" style="padding: 1rem; background: white; border-radius: 8px; text-decoration: none; color: #1a1a2e; font-weight: 600; text-align: center; transition: all 0.2s; border: 1px solid #e5e7eb;">📞 Telefone: 935 798 081</a>
+              <a href="https://wa.me/351935798081?text=Olá! Gostaria de solicitar um orçamento." target="_blank" style="padding: 1rem; background: white; border-radius: 8px; text-decoration: none; color: #1a1a2e; font-weight: 600; text-align: center; transition: all 0.2s; border: 1px solid #e5e7eb;">💬 WhatsApp</a>
+              <a href="mailto:geral@sofalimpo.pt" style="padding: 1rem; background: white; border-radius: 8px; text-decoration: none; color: #1a1a2e; font-weight: 600; text-align: center; transition: all 0.2s; border: 1px solid #e5e7eb;">📧 Email: geral@sofalimpo.pt</a>
+            </div>
+            <p style="color: #6b7280; font-size: 0.9rem; margin-top: 1.5rem; border-top: 1px solid #e5e7eb; padding-top: 1rem;">Horário: Seg-Sex 08:00-18:00 | Sáb 09:00-15:00</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
 (function() {
     console.log("SofáLimpo Customização v3.0 - Ativado");
-    
-    // ==========================================
-    // SUPABASE CONFIG
-    // ==========================================
+
     const SUPABASE_URL = 'https://xctdeqkazwdaxhgtyqoo.supabase.co';
     const ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InhjdGRlcWthendkYXhoZ3R5cW9vIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDQwMTg3NjIsImV4cCI6MjA1OTU5NDc2Mn0.s639u_g8KDze-bib_BLFa2f1tECsqJxvPHahCeosa6Q';
 
@@ -280,9 +305,6 @@
         return null;
     }
 
-    // ==========================================
-    // PRICING RULES (loaded from Supabase)
-    // ==========================================
     let PRICING_RULES = {
         'sofa': {
             'base': 71.00,
@@ -291,7 +313,6 @@
         'colchao': { 'solteiro': 50.00, 'casal': 74.00 }
     };
 
-    // Load latest pricing from Supabase
     async function loadPricingFromSupabase() {
         try {
             const resp = await fetch(`${SUPABASE_URL}/rest/v1/services?type=eq.sofa&select=pricing_rules`, {
@@ -309,23 +330,14 @@
     }
     loadPricingFromSupabase();
 
-    // ==========================================
-    // EXTRAS THAT NEED QUANTITY SELECTOR
-    // ==========================================
     const QUANTITY_EXTRAS = ['almofadas', 'puffs', 'puffs_xl', 'puffs xl', 'bancos'];
     const extraQuantities = {};
 
-    // ==========================================
-    // 1. REMOVE OLD INJECTED SOFÁ CAMA
-    // ==========================================
     function removeOldSofaCama() {
         const old = document.getElementById('extra-sofa-cama');
         if (old) old.remove();
     }
 
-    // ==========================================
-    // 2. PRICE DISPLAY UPDATE
-    // ==========================================
     function updatePriceDisplay() {
         const quantitySpan = Array.from(document.querySelectorAll('span')).find(el => /^\d+$/.test(el.innerText) && el.className.includes('text-2xl'));
         if (!quantitySpan) return;
@@ -350,7 +362,7 @@
             if (!label) return;
             const container = label.closest('.flex.items-start') || label.closest('[class*="hover:bg-gray"]') || label.parentElement;
             const labelText = (container ? container.innerText : label.innerText).toLowerCase();
-            
+
             const match = labelText.match(/\+(\d+(?:[.,]\d+)?)\s*€/);
             if (match) {
                 let extraPrice = parseFloat(match[1].replace(',', '.'));
@@ -370,12 +382,12 @@
                 if (el.children.length === 0 && el.innerText && el.innerText.includes('€')) {
                     const priceRegex = /\d+([.,]\d{2})?\s*€/;
                     if (priceRegex.test(el.innerText)) {
-                        const isTotalDisplay = el.closest('.bg-gray-50') || 
-                                             el.className.includes('font-bold') || 
+                        const isTotalDisplay = el.closest('.bg-gray-50') ||
+                                             el.className.includes('font-bold') ||
                                              el.className.includes('text-3xl');
                         const isOptionLabel = el.closest('label') && (el.closest('.space-y-2') || el.closest('.space-y-4'));
                         const isExtraPrice = el.closest('.sl-extra-qty-control') || el.classList.contains('sl-extra-qty-value');
-                        
+
                         if (isTotalDisplay && !isOptionLabel && !isExtraPrice) {
                             el.innerText = el.innerText.replace(priceRegex, total + ' €');
                         }
@@ -385,13 +397,10 @@
         }
     }
 
-    // ==========================================
-    // 3. SEATS NUMERIC CONTROL
-    // ==========================================
     function transformSeatsToNumeric() {
         const seatsContainer = document.querySelector('.space-y-2');
         if (!seatsContainer) return;
-        
+
         const hasRadios = seatsContainer.querySelector('input[name="seats"]');
         if (!hasRadios) return;
         if (document.getElementById('custom-seats-control')) return;
@@ -414,7 +423,7 @@
         const hiddenContainer = document.createElement('div');
         hiddenContainer.id = "hidden-radios";
         hiddenContainer.style.display = "none";
-        
+
         const radios = Array.from(seatsContainer.querySelectorAll('label'));
         radios.forEach(r => hiddenContainer.appendChild(r));
 
@@ -445,37 +454,34 @@
         }
     }
 
-    // ==========================================
-    // 4. ADD QUANTITY CONTROLS TO EXTRAS
-    // ==========================================
     function addQuantityToExtras() {
         const extrasHeader = Array.from(document.querySelectorAll('h4')).find(h => h.innerText.includes('Extras Disponíveis'));
         if (!extrasHeader) return;
-        
+
         const extrasContainer = extrasHeader.parentElement;
         if (!extrasContainer) return;
 
         const extraItems = extrasContainer.querySelectorAll('.flex.items-start');
-        
+
         extraItems.forEach(item => {
             if (item.querySelector('.sl-extra-qty-control')) return;
-            
+
             const checkbox = item.querySelector('input[type="checkbox"]');
             if (!checkbox) return;
-            
+
             const nameEl = item.querySelector('.font-medium');
             if (!nameEl) return;
-            
+
             const extraName = nameEl.textContent.trim().toLowerCase();
-            
-            const needsQty = extraName.includes('almofada') || 
-                              extraName.includes('puff') || 
+
+            const needsQty = extraName.includes('almofada') ||
+                              extraName.includes('puff') ||
                               extraName.includes('banco');
-            
+
             if (needsQty) {
                 const extraKey = extraName.replace(/\s+/g, '_');
                 if (!extraQuantities[extraKey]) extraQuantities[extraKey] = 1;
-                
+
                 const qtyControl = document.createElement('div');
                 qtyControl.className = 'sl-extra-qty-control';
                 qtyControl.innerHTML = `
@@ -483,7 +489,7 @@
                     <span class="sl-extra-qty-value">${extraQuantities[extraKey]}</span>
                     <button class="sl-extra-qty-btn sl-qty-plus" type="button">+</button>
                 `;
-                
+
                 const priceEl = item.querySelector('[class*="text-[#deb052]"]');
                 if (priceEl) {
                     priceEl.parentElement.appendChild(qtyControl);
@@ -491,9 +497,9 @@
                     const flex1 = item.querySelector('.flex-1');
                     if (flex1) flex1.appendChild(qtyControl);
                 }
-                
+
                 qtyControl.style.display = checkbox.checked ? 'inline-flex' : 'none';
-                
+
                 checkbox.addEventListener('change', () => {
                     qtyControl.style.display = checkbox.checked ? 'inline-flex' : 'none';
                     if (!checkbox.checked) {
@@ -502,7 +508,7 @@
                     }
                     updatePriceDisplay();
                 });
-                
+
                 qtyControl.querySelector('.sl-qty-minus').onclick = (e) => {
                     e.preventDefault(); e.stopPropagation();
                     let val = extraQuantities[extraKey];
@@ -513,7 +519,7 @@
                         updatePriceDisplay();
                     }
                 };
-                
+
                 qtyControl.querySelector('.sl-qty-plus').onclick = (e) => {
                     e.preventDefault(); e.stopPropagation();
                     let val = extraQuantities[extraKey];
@@ -528,9 +534,6 @@
         });
     }
 
-    // ==========================================
-    // 5. INTERCEPT "OUTROS" SERVICE CLICK
-    // ==========================================
     function interceptOutrosClick() {
         const serviceButtons = document.querySelectorAll('button');
         serviceButtons.forEach(btn => {
@@ -545,7 +548,7 @@
                 }, true);
             }
         });
-        
+
         const serviceCards = document.querySelectorAll('[class*="cursor-pointer"]');
         serviceCards.forEach(card => {
             const text = card.innerText.trim();
@@ -603,63 +606,54 @@
                 </div>
             </div>
         `;
-        
+
         document.body.appendChild(overlay);
         overlay.addEventListener('click', (e) => {
             if (e.target === overlay) overlay.remove();
         });
     }
 
-    // ==========================================
-    // 6. ADMIN: SEATS PRICING EDITOR
-    // ==========================================
     function injectAdminSeatsPricingEditor() {
         if (!window.location.pathname.startsWith('/admin')) return;
         if (document.getElementById('sl-seats-editor')) return;
-        
-        // Find the "Editar Serviço" modal title
+
         const editTitle = Array.from(document.querySelectorAll('h2, h3, div')).find(el => {
             return el.children.length === 0 && el.innerText && el.innerText.trim() === 'Editar Serviço';
         });
         if (!editTitle) return;
-        
-        // Find the modal container
+
         const modal = editTitle.closest('[class*="fixed"]');
         if (!modal) return;
-        
-        // Check if this is the sofa service by finding the slug input
+
         const slugInput = Array.from(modal.querySelectorAll('input[type="text"]')).find(i => i.value === 'sofa');
         if (!slugInput) return;
-        
-        // Find the pricing section: div.bg-gray-50.p-4.rounded-lg.space-y-4
+
         const basePriceInput = Array.from(modal.querySelectorAll('input[type="number"]')).find(inp => {
             const parentText = inp.parentElement?.parentElement?.innerText || '';
             return parentText.includes('Preço Base') || inp.value === String(PRICING_RULES.sofa.base);
         });
-        
+
         if (!basePriceInput) return;
-        
-        // Find the pricing section container (bg-gray-50 p-4 rounded-lg space-y-4)
+
         let pricingSection = basePriceInput.parentElement;
         while (pricingSection && !pricingSection.className.includes('bg-gray-50')) {
             pricingSection = pricingSection.parentElement;
         }
         if (!pricingSection) pricingSection = basePriceInput.parentElement.parentElement.parentElement;
-        
-        // Create the seats editor
+
         const editor = document.createElement('div');
         editor.id = 'sl-seats-editor';
         editor.className = 'sl-seats-editor';
-        
+
         const currentSeats = PRICING_RULES.sofa.seats;
-        
+
         editor.innerHTML = `
             <h4>💺 Preços por Número de Lugares</h4>
             <div class="sl-seats-grid">
                 ${[2,3,4,5,6].map(n => `
                     <div class="sl-seat-item">
                         <label>${n} Lugares</label>
-                        <input type="number" step="0.01" value="${currentSeats[n] || ''}" 
+                        <input type="number" step="0.01" value="${currentSeats[n] || ''}"
                                data-seats="${n}" class="sl-seat-price-input" placeholder="€" />
                     </div>
                 `).join('')}
@@ -669,54 +663,51 @@
             </button>
             <div class="sl-seats-status" id="sl-seats-status"></div>
         `;
-        
-        // Insert after the pricing section
+
         pricingSection.parentElement.insertBefore(editor, pricingSection.nextSibling);
-        
-        // Save handler
+
         document.getElementById('sl-save-seats-btn').onclick = async (e) => {
             e.preventDefault();
             e.stopPropagation();
-            
+
             const statusEl = document.getElementById('sl-seats-status');
             const btn = document.getElementById('sl-save-seats-btn');
             btn.textContent = '⏳ A guardar...';
             btn.disabled = true;
-            
+
             const newPrices = {};
             document.querySelectorAll('.sl-seat-price-input').forEach(inp => {
                 newPrices[inp.dataset.seats] = parseFloat(inp.value) || 0;
             });
-            
+
             PRICING_RULES.sofa.seats = newPrices;
-            
+
             try {
                 const token = getAuthToken();
                 if (!token) throw new Error('Sessão expirada');
-                
+
                 const headers = {
                     'apikey': ANON_KEY,
                     'Authorization': `Bearer ${token}`,
                     'Content-Type': 'application/json'
                 };
-                
-                // Get current service data
+
                 const resp = await fetch(`${SUPABASE_URL}/rest/v1/services?type=eq.sofa&select=id,pricing_rules`, { headers });
                 const services = await resp.json();
-                
+
                 if (services.length > 0) {
                     const svc = services[0];
                     const updatedRules = { ...svc.pricing_rules, prices_by_seats: newPrices };
-                    
+
                     const updateResp = await fetch(`${SUPABASE_URL}/rest/v1/services?id=eq.${svc.id}`, {
                         method: 'PATCH',
                         headers,
-                        body: JSON.stringify({ 
+                        body: JSON.stringify({
                             pricing_rules: updatedRules,
                             updated_at: new Date().toISOString()
                         })
                     });
-                    
+
                     if (updateResp.ok || updateResp.status === 204) {
                         statusEl.className = 'sl-seats-status success';
                         statusEl.textContent = '✅ Preços por lugares atualizados com sucesso!';
@@ -724,8 +715,7 @@
                         throw new Error('Erro HTTP: ' + updateResp.status);
                     }
                 }
-                
-                // Also try to update prices table
+
                 try {
                     const pricesResp = await fetch(`${SUPABASE_URL}/rest/v1/prices?select=id`, { headers });
                     const prices = await pricesResp.json();
@@ -743,43 +733,35 @@
                             })
                         });
                     }
-                } catch(e) { /* prices table may not exist */ }
-                
+                } catch(e) { }
+
             } catch(err) {
                 console.error('Error saving seats prices:', err);
                 statusEl.className = 'sl-seats-status error';
                 statusEl.textContent = '❌ Erro: ' + err.message;
             }
-            
+
             btn.innerHTML = '💾 Guardar Preços por Lugares';
             btn.disabled = false;
-            
+
             setTimeout(() => { statusEl.style.display = 'none'; statusEl.className = 'sl-seats-status'; }, 4000);
         };
     }
 
-    // ==========================================
-    // 7. ADMIN: INJECT EXTRAS QUANTITY CONFIG
-    // ==========================================
     function injectAdminExtrasConfig() {
         if (!window.location.pathname.startsWith('/admin')) return;
-        // The React admin already handles extras editing via "Gerir extras"
-        // No additional injection needed for now
     }
 
-    // ==========================================
-    // MAIN LOOP
-    // ==========================================
     setInterval(() => {
         removeOldSofaCama();
-        
+
         if (!window.location.pathname.startsWith('/admin')) {
             transformSeatsToNumeric();
             addQuantityToExtras();
             updatePriceDisplay();
             interceptOutrosClick();
         }
-        
+
         if (window.location.pathname.startsWith('/admin')) {
             injectAdminSeatsPricingEditor();
             injectAdminExtrasConfig();
@@ -788,7 +770,7 @@
 
     document.addEventListener('click', () => setTimeout(updatePriceDisplay, 100));
 })();
-</script>
+    </script>
 
-</body>
+  </body>
 </html>
